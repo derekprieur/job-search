@@ -14,3 +14,5 @@ export { default as FindJobsCard } from './FindJobsCard';
 export { default as JobDetailsCard } from './JobDetailsCard';
 export { default as JobDetailList } from './JobDetailList';
 export { default as SimilarJobsCard } from './SimilarJobsCard';
+export { default as CompanyJobs } from './CompanyJobs';
+export { default as RecentJobPostCard } from './RecentJobPostCard';
