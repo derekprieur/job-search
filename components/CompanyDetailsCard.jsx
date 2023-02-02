@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import background from '../assets/background.png'
 import companylogo from '../assets/companylogo.png'
-import { BsDot } from 'react-icons/bs'
+import { BsDot, BsPlus } from 'react-icons/bs'
 import people from '../assets/people.png'
 
 const CompanyDetailsCard = () => {
@@ -27,6 +27,16 @@ const CompanyDetailsCard = () => {
             </div>
             <div className='border-b border-[#F1F1F5] mt-6' />
             <Image className='ml-4 mt-6' src={people} />
+            <div className='flex items-center border border-[#0BAB7C] text-[#0BAB7C] justify-center rounded-xl py-1 mt-6 w-[90%] mx-auto'>
+                    <BsPlus className='text-3xl' />
+                    <p>Follow</p>
+                </div>
+            <div className='mt-10'>
+                <button>About</button>
+                <button>Jobs</button>
+                <button>Products</button>
+                <button>Employees</button>
+            </div>
         </div>
     )
 }
