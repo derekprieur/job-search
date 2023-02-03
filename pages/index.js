@@ -36,11 +36,17 @@ export default function Home() {
       </Head>
       <main>
         <Navbar />
-        <div className={`${!isDark ? 'bg-[#FAFAFB]' : 'bg-[#13131A]'} px-6 h-full py-20`}>
+        <div className={`${!isDark ? 'bg-[#FAFAFB]' : 'bg-[#13131A]'} h-full py-20 ${isMobile ? 'px-6' : 'px-20'}`}>
           <Title title='Welcome to the Job Search Platform for Developers' />
-          <LatestPosts />
-          <FeaturedCompanies />
-          <RecommendedJobs />
+          <div className={`${!isMobile && 'flex gap-10'}`}>
+            <div className={`flex flex-col ${!isMobile && 'w-[60%]'}`}>
+              <LatestPosts />
+              <FeaturedCompanies />
+            </div>
+            <div className={`${!isMobile && 'flex flex-col w-[40%]'}`}>
+              <RecommendedJobs />
+            </div>
+          </div>
           <Schedule />
         </div>
       </main>

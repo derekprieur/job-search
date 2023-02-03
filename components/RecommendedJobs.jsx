@@ -5,6 +5,7 @@ import { RecommendedJobCard } from '.'
 
 const RecommendedJobs = () => {
     const isDark = useSelector(state => state.darkMode.value)
+    const isMobile = useSelector(state => state.isMobile.value)
     return (
         <>
             <div className='mt-10 flex justify-between items-center'>
@@ -17,6 +18,11 @@ const RecommendedJobs = () => {
                 <RecommendedJobCard />
                 <RecommendedJobCard />
                 <RecommendedJobCard />
+                {!isMobile && <RecommendedJobCard />}
+                {!isMobile && <RecommendedJobCard />}
+                {!isMobile && <RecommendedJobCard />}
+                {!isMobile && <RecommendedJobCard />}
+                {!isMobile && <RecommendedJobCard />}
             </div>
         </>
     )

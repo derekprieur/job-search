@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
-
 import { CompanyDetailsCard, FeaturedCompanies, LatestPosts, Navbar, RecommendedJobs, Schedule, SimilarCompanyCard, Title } from "components";
 import { update } from '../../redux/isMobileSlice'
 
