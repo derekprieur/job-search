@@ -13,7 +13,7 @@ const Navbar = () => {
     const isMobile = useSelector(state => state.isMobile.value)
     const dispatch = useDispatch()
     return (
-        <div className={`px-6 md:px-20 py-8 border-b ${isDark ? 'border-[#21212B]' : 'border-[#E2E2EA]'} text-[#92929D] ${isDark ? 'bg-[#13131A]' : 'bg-white'} fixed top-0 w-full`}>
+        <div className={`px-6 md:px-20 py-8 border-b ${isDark ? 'border-[#21212B]' : 'border-[#E2E2EA]'} text-[#92929D] ${isDark ? 'bg-[#13131A]' : 'bg-white'} fixed top-0 w-full z-50`}>
             <div className='flex justify-between items-center'>
                 {isMobile ? <RxHamburgerMenu className='text-2xl' /> : <Image alt='logo' src={logo} className='w-[90px] h-[22px] object-contain' />}
                 {!isMobile &&
