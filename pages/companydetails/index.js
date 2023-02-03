@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
 
-import { CompanyDetailsCard, FeaturedCompanies, LatestPosts, Navbar, RecommendedJobs, Schedule, Title } from "components";
+import { CompanyDetailsCard, FeaturedCompanies, LatestPosts, Navbar, RecommendedJobs, Schedule, SimilarCompanyCard, Title } from "components";
 import { update } from '../../redux/isMobileSlice'
 
 export default function CompanyDetails() {
@@ -37,6 +37,15 @@ export default function CompanyDetails() {
                     <p>Back</p>
                 </button>
                 <CompanyDetailsCard />
+                <h1 className={`font-bold px-4 text-[22px] mt-10 mb-8 ${isDark && 'text-white'}`}>Similar Companies</h1>
+                <SimilarCompanyCard />
+                <SimilarCompanyCard />
+                <SimilarCompanyCard />
+                <SimilarCompanyCard />
+                <SimilarCompanyCard />
+                <SimilarCompanyCard />
+                <SimilarCompanyCard />
+                <SimilarCompanyCard />
             </div>
         </main>
     )
