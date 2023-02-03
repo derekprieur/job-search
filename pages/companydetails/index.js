@@ -32,7 +32,7 @@ export default function CompanyDetails() {
         <main>
             <Navbar />
             <div className={`${!isDark ? 'bg-[#FAFAFB]' : 'bg-[#13131A]'} px-6 h-full py-20`}>
-                <button className="mt-12 flex items-center gap-3 bg-[#F1F1F5] text-[#92929D] px-3 py-2 rounded-lg">
+                <button className={`mt-12 flex items-center gap-3  text-[#92929D] px-3 py-2 rounded-lg ${isDark ? 'bg-[#21212B]' : 'bg-[#F1F1F5]'}`}>
                     <MdOutlineKeyboardArrowLeft className="text-2xl" />
                     <p>Back</p>
                 </button>

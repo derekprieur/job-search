@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 const SimilarCompanyCard = () => {
     const isDark = useSelector(state => state.darkMode.value)
     return (
-        <div className='mx-4 bg-white p-6 mb-5 rounded-xl'>
+        <div className={`mx-4 p-6 mb-5 rounded-xl ${isDark ? 'bg-[#21212B]' : 'bg-white'}`}>
             <div className='flex justify-between'>
                 <div className='flex items-center gap-3'>
                     <Image src={apple} alt='company' className='w-12' />
