@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux'
 
 const Title = ({ title }) => {
     const isDark = useSelector(state => state.darkMode.value)
-    const isMobile = useSelector(state => state.isMobile.value)
     const date = new Date()
     return (
         <div className='py-7'>

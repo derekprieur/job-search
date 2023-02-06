@@ -5,27 +5,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { update } from '../redux/isMobileSlice'
 
 export default function Home() {
-  const isMobile = useSelector(state => state.isMobile.value)
   const isDark = useSelector(state => state.darkMode.value)
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    const checkSize = () => {
-      if (window.innerWidth <= 768) {
-        dispatch(update(true))
-      } else {
-        dispatch(update(false))
-      }
-    }
-
-    window.addEventListener('resize', checkSize)
-
-    checkSize()
-
-    return () => {
-      window.removeEventListener('resize', checkSize)
-    }
-  }, [])
   return (
     <>
       <Head>
@@ -36,18 +18,20 @@ export default function Home() {
       </Head>
       <main>
         <Navbar />
-        <div className={`${!isDark ? 'bg-[#FAFAFB]' : 'bg-[#13131A]'} h-full py-20 ${isMobile ? 'px-6' : 'px-20'}`}>
+        <div className={`${!isDark ? 'bg-[#FAFAFB]' : 'bg-[#13131A]'} h-full py-20 px-6 md:px-20`}>
           <Title title='Welcome to the Job Search Platform for Developers' />
-          <div className={`${!isMobile && 'flex gap-10'}`}>
-            <div className={`flex flex-col ${!isMobile && 'w-[60%]'}`}>
+          <div className='md:flex md:gap-10'>
+            <div className='md:flex md:flex-col md:w-[60%]'>
               <LatestPosts />
               <FeaturedCompanies />
             </div>
-            <div className={`${!isMobile && 'flex flex-col w-[40%]'}`}>
+            <div className='md:flex md:flex-col md:w-[40%]'>
               <RecommendedJobs />
             </div>
           </div>
-          <Schedule />
+          <div className="block md:hidden">
+            <Schedule />
+          </div>
         </div>
       </main>
     </>

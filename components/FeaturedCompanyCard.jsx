@@ -5,21 +5,24 @@ import { BsStarHalf } from 'react-icons/bs'
 import { CiLocationOn } from 'react-icons/ci'
 import { RiSuitcaseLine } from 'react-icons/ri'
 import { useSelector } from 'react-redux'
+import Link from 'next/link'
 
 const FeaturedCompanyCard = () => {
     const isDark = useSelector(state => state.darkMode.value)
     return (
         <div className={`mt-10 ${isDark ? 'bg-[#1C1C24]' : 'bg-white'} px-4 py-6 rounded-lg`}>
-            <div className='flex gap-6 items-center'>
-                <Image src={apple} alt='company' />
-                <div>
-                    <h2 className={`font-semibold text-lg ${isDark && 'text-white'}`}>Apple Inc.</h2>
-                    <div className='flex items-center gap-2'>
-                        <BsStarHalf className='text-[#FFC542]' />
-                        <p className='text-[#92929D]'>4.8k</p>
+            <Link href='/companydetails'>
+                <div className='flex gap-6 items-center'>
+                    <Image src={apple} alt='company' />
+                    <div>
+                        <h2 className={`font-semibold text-lg ${isDark && 'text-white'}`}>Apple Inc.</h2>
+                        <div className='flex items-center gap-2'>
+                            <BsStarHalf className='text-[#FFC542]' />
+                            <p className='text-[#92929D]'>4.8k</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </Link>
             <div className='mt-4 flex gap-3 text-[#92929D] items-center ml-10'>
                 {/* <CiLocationOn /> */}
                 <p>New york, USA</p>

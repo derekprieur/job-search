@@ -7,6 +7,7 @@ import { RiSuitcaseLine } from 'react-icons/ri'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import { TextBubble } from '.'
 import { useSelector } from 'react-redux'
+import Link from 'next/link'
 
 const JobPostCard = () => {
     const isDark = useSelector(state => state.darkMode.value)
@@ -39,7 +40,9 @@ const JobPostCard = () => {
             </div>
             <div className='flex justify-between mt-7 items-center'>
                 <p className={`font-extrabold text-xl ${isDark && 'text-white'}`}>$15k-20k<span className={`${isDark ? 'text-white' : 'text-[#696974]'}  font-normal text-lg`}>/month</span></p>
-                <button className='bg-[#0BAB7C] text-white px-4 py-2 rounded-lg font-medium text-lg'>Apply Now</button>
+                <Link href='/jobdetails'>
+                    <button className='bg-[#0BAB7C] text-white px-4 py-2 rounded-lg font-medium text-lg'>Apply Now</button>
+                </Link>
             </div>
         </div>
     )

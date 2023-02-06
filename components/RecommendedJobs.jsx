@@ -8,7 +8,7 @@ const RecommendedJobs = () => {
     const isMobile = useSelector(state => state.isMobile.value)
     return (
         <>
-            <div className='mt-10 flex justify-between items-center'>
+            <div className='mt-12 flex justify-between items-center'>
                 <h1 className={`font-semibold text-[22px] ${isDark && 'text-white'}`}>Recommended For You</h1>
                 <div className={`flex items-center border ${isDark && 'border-[#696974]'} gap-2 px-3 py-2 text-[#696974] rounded-lg`}>See All <MdOutlineKeyboardArrowDown className='text-xl' /></div>
             </div>
