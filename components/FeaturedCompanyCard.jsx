@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import apple from '../assets/apple.png'
 import { BsStarHalf } from 'react-icons/bs'
-import { CiLocationOn } from 'react-icons/ci'
+import { IoLocationOutline } from 'react-icons/io5'
 import { RiSuitcaseLine } from 'react-icons/ri'
 import { useSelector } from 'react-redux'
 import Link from 'next/link'
@@ -23,14 +23,18 @@ const FeaturedCompanyCard = () => {
                     </div>
                 </div>
             </Link>
-            <div className='mt-4 flex gap-3 text-[#92929D] items-center ml-10'>
-                {/* <CiLocationOn /> */}
-                <p>New york, USA</p>
-                <RiSuitcaseLine />
-                <p>05 Job Vacancy</p>
+            <div className='mt-4 flex md:flex-col gap-3 text-[#92929D] items-center md:items-start ml-10 md:ml-0'>
+                <div className='flex items-center gap-3'>
+                    <IoLocationOutline />
+                    <p>New york, USA</p>
+                </div>
+                <div className='flex items-center gap-3'>
+                    <RiSuitcaseLine />
+                    <p>05 Job Vacancy</p>
+                </div>
             </div>
-            <div className='flex justify-center mt-4'>
-                <button className={`${isDark ? 'bg-[#21212B]' : 'bg-[#F5F5F8]'} w-full text-[#92929D] py-4 rounded-lg`}>See All</button>
+            <div className='flex justify-center md:justify-start mt-4'>
+                <button className={`${isDark ? 'bg-[#21212B]' : 'bg-[#F5F5F8]'} w-full md:w-60 text-[#92929D] py-4 rounded-lg`}>See All</button>
             </div>
         </div>
     )

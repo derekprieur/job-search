@@ -7,9 +7,11 @@ const FeaturedCompanies = () => {
     return (
         <div className='mt-10'>
             <h1 className={`font-semibold text-[22px] ${isDark && 'text-white'}`}>Featured Companies</h1>
-            <FeaturedCompanyCard />
-            <FeaturedCompanyCard />
-            <FeaturedCompanyCard />
+            <div className='md:flex md:flex-wrap gap-9 '>
+                <FeaturedCompanyCard />
+                <FeaturedCompanyCard />
+                <FeaturedCompanyCard />
+            </div>
         </div>
     )
 }

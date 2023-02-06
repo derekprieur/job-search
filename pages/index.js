@@ -1,12 +1,9 @@
 import { FeaturedCompanies, LatestPosts, Navbar, RecommendedJobs, Schedule, Title } from "components";
 import Head from "next/head";
-import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { update } from '../redux/isMobileSlice'
+import { useSelector } from "react-redux";
 
 export default function Home() {
   const isDark = useSelector(state => state.darkMode.value)
-  const dispatch = useDispatch()
 
   return (
     <>
