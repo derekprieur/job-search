@@ -15,10 +15,14 @@ const SearchedJobCard = () => {
                 <div className='flex flex-col gap-1 flex-1'>
                     <div className='flex justify-between items-center'>
                         <h2 className={`font-bold text-lg ${isDark && 'text-white'}`}>Passionate Programmer</h2>
-                        <BsBookmark className='text-[#92929D] text-xl' />
+                        <div className='flex items-center gap-2 md:bg-[#FAFAFB] md:px-3 md:py-2 rounded-xl'>
+                            <p className='hidden md:block text-[#92929D]'>Save job</p>
+                            <BsBookmark className='text-[#92929D] text-xl md:text-lg' />
+                        </div>
                     </div>
-                    <div>
+                    <div className='flex flex-col md:flex-row md:items-center'>
                         <h3 className={`${isDark ? 'text-[#92929D]' : 'text-[#696974]'}`}>UIHUT Technologies LLC</h3>
+                        <BsDot className='hidden md:flex' />
                         <div className={`flex items-center ${isDark ? 'text-[#92929D]' : 'text-[#696974]'}`}>
                             <h4>Sylhet, BD</h4>
                             <BsDot />
@@ -34,13 +38,15 @@ const SearchedJobCard = () => {
                 <TextBubble text='CSS' />
                 <TextBubble text='React' />
             </div>
-            <div className='flex justify-between mt-5'>
-                <p className={`font-bold ${isDark && 'text-white'}`}>$15k-20k<span className='text-[#696974] font-normal'>/month</span></p>
-                <p className={`font-bold ${isDark && 'text-white'}`}>54 <span className='text-[#696974] font-normal'>People Applied</span></p>
-            </div>
-            <div className='flex mt-8 justify-between gap-5'>
-                <button className={`text-[#696974] px-8 py-2 rounded-xl  w-full text-lg ${isDark ? 'bg-[#21212B]' : 'bg-[#F5F5F8]'}`}>Message</button>
-                <button className='bg-[#0BAB7C] text-white px-8 w-full py-2 rounded-xl text-lg'>Apply Now</button>
+            <div className='flex flex-col md:flex-row md:justify-between md:items-center md:gap-60 md:mt-5'>
+                <div className='flex md:gap-8 mt-5 md:mt-0 flex-1'>
+                    <p className={`font-bold ${isDark && 'text-white'}`}>$15k-20k<span className='text-[#696974] font-normal'>/month</span></p>
+                    <p className={`font-bold ${isDark && 'text-white'}`}>54 <span className='text-[#696974] font-normal'>People Applied</span></p>
+                </div>
+                <div className='flex mt-8 md:mt-0 justify-between md:justify-end gap-5 flex-1'>
+                    <button className={`text-[#696974] px-8 py-2 rounded-xl w-full text-lg md:px-8 md:w-fit ${isDark ? 'bg-[#21212B]' : 'bg-[#F5F5F8]'}`}>Message</button>
+                    <button className='bg-[#0BAB7C] text-white px-8 w-full py-2 rounded-xl text-lg md:p-0 md:px-14 md:py-3 md:w-fit'>Apply Now</button>
+                </div>
             </div>
         </div>
     )
