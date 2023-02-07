@@ -30,7 +30,7 @@ const JobDetails = () => {
             <Navbar />
             <div className={`mt-20 px-6 ${!isDark ? 'bg-[#FAFAFB]' : 'bg-[#13131A]'} min-h-screen`}>
                 <Title title="Let's find your dream job" />
-                <FindJobsCard />
+                <FindJobsCard btnTitle='Find Jobs' />
                 <JobDetailsCard />
             </div>
         </main>

@@ -18,3 +18,4 @@ export { default as CompanyJobs } from './CompanyJobs';
 export { default as RecentJobPostCard } from './RecentJobPostCard';
 export { default as SimilarCompanyCard } from './SimilarCompanyCard';
 export { default as SalaryInput } from './SalaryInput';
+export { default as JobAlert } from './JobAlert';

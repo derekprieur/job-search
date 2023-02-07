@@ -4,7 +4,7 @@ import { IoLocationOutline } from 'react-icons/io5'
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
 import { RiSuitcaseLine } from 'react-icons/ri'
 
-const FindJobsCard = () => {
+const FindJobsCard = ({ btnTitle }) => {
     return (
         <div className='bg-white w-full rounded-2xl'>
             <div className='flex items-center w-full px-8 gap-4 py-6'>
@@ -26,7 +26,7 @@ const FindJobsCard = () => {
             </div>
             <div className='border-b mx-6 border-[#FAFAFB]' />
             <div className='px-8 py-6'>
-                <button className='bg-[#0BAB7C] w-full text-white py-4 rounded-lg'>See All</button>
+                <button className='bg-[#0BAB7C] w-full text-white py-4 rounded-lg'>{btnTitle}</button>
             </div>
         </div>
     )
