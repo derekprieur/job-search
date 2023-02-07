@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { FindJobsCard, JobAlert, Navbar, Title } from 'components'
+import { FindJobsCard, JobAlert, Navbar, SearchedJobs, Title } from 'components'
 import { useSelector } from 'react-redux'
 
 const Search = () => {
@@ -12,6 +12,7 @@ const Search = () => {
                 <Title title="Let's find your dream job" />
                 <FindJobsCard btnTitle='Find Jobs' />
                 <JobAlert />
+                <SearchedJobs />
             </div>
         </main>
 
