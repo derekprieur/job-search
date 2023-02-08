@@ -21,3 +21,5 @@ export { default as SalaryInput } from './SalaryInput';
 export { default as JobAlert } from './JobAlert';
 export { default as SearchedJobs } from './SearchedJobs';
 export { default as SearchedJobCard } from './SearchedJobCard';
+export { default as SearchFilterList } from './SearchFilterList';
+export { default as FilterOption } from './FilterOption';
