@@ -8,12 +8,12 @@ import { JobDetailList, SimilarJobsCard } from '.'
 
 const JobDetailsCard = () => {
     return (
-        <>
-            <div className='bg-white px-4 py-5 mt-8 rounded-2xl'>
+        <div className='flex flex-col md:flex-row md:gap-10'>
+            <div className='bg-white px-4 py-5 mt-8 rounded-2xl md:w-[70%]'>
                 <div className='w-full relative'>
-                    <Image src={background} alt='background' className='w-full rounded-t-3xl mt-2' />
+                    <Image src={background} alt='background' className='w-full rounded-t-3xl mt-2 md:max-h-48' />
                     <div className='absolute bg-[#FAFAFB] bottom-[-30px] rounded-lg border left-4'>
-                        <Image src={companylogo} alt='company logo' width={60} className='object-cover p-[1px]' />
+                        <Image src={companylogo} alt='company logo' width={60} className='object-contain p-[1px]' />
                     </div>
                 </div>
                 <div className='mt-14 px-4 flex justify-between items-center'>
@@ -21,13 +21,20 @@ const JobDetailsCard = () => {
                         <h2 className='text-[#171725] font-semibold text-lg'>Passionate Programmer</h2>
                         <BsBookmark className='text-[#92929D] text-2xl' />
                     </div>
-                    <BiDotsVerticalRounded className='text-[#92929D] text-3xl' />
+                    <div className='flex items-center gap-4'>
+                        <button className='bg-[#0BAB7C] text-white px-8 py-2 rounded-xl text-lg hidden md:flex'>Apply Now</button>
+                        <button className='bg-transparent text-[#696974] border px-8 py-2 rounded-xl text-lg hidden md:flex'>Message</button>
+                        <BiDotsVerticalRounded className='text-[#92929D] text-3xl' />
+                    </div>
                 </div>
-                <h3 className='px-4 py-2 text-[#696974]'>UIHUT Technologies LLC</h3>
-                <div className='px-4 py-1 text-[#696974] flex items-center'>
-                    <p>Sylhet, BD</p>
-                    <BsDot />
-                    <p>3 days ago</p>
+                <div className='flex flex-col md:flex-row'>
+                    <h3 className='px-4 md:pr-0 py-2 text-[#696974]'>UIHUT Technologies LLC</h3>
+                    <div className='px-4 md:pl-0 py-1 text-[#696974] flex items-center'>
+                        <BsDot className='hidden md:flex' />
+                        <p>Sylhet, BD</p>
+                        <BsDot />
+                        <p>3 days ago</p>
+                    </div>
                 </div>
                 <div className='bg-[#FAFAFB] w-[70%] p-3 flex flex-col rounded-2xl mt-7 mx-4'>
                     <div className='flex justify-between'>
@@ -79,17 +86,19 @@ const JobDetailsCard = () => {
                 </div>
                 <p className='text-[#696974] font-normal mt-6 px-4'>Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us. In this role, you would use various tech stacks, including Laravel, Node JS (Adonis JS), Vue JS, React JS, Nuxt JS, Redis, MySQL, MongoDB, and CSS. You will be engaged across the software development life cycle to create and modify platforms and capabilities in a collaborative and agile environment.</p>
             </div>
-            <h2 className='text-[#171725] font-semibold text-lg mt-10'>Similar Jobs</h2>
-            <SimilarJobsCard />
-            <SimilarJobsCard />
-            <SimilarJobsCard />
-            <SimilarJobsCard />
-            <SimilarJobsCard />
-            <SimilarJobsCard />
-            <SimilarJobsCard />
-            <SimilarJobsCard />
-            <SimilarJobsCard />
-        </>
+            <div className='md:w-[30%]'>
+                <h2 className='text-[#171725] font-semibold text-lg mt-10'>Similar Jobs</h2>
+                <SimilarJobsCard />
+                <SimilarJobsCard />
+                <SimilarJobsCard />
+                <SimilarJobsCard />
+                <SimilarJobsCard />
+                <SimilarJobsCard />
+                <SimilarJobsCard />
+                <SimilarJobsCard />
+                <SimilarJobsCard />
+            </div>
+        </div>
     )
 }
 
