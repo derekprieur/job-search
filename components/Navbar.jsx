@@ -10,30 +10,40 @@ import { toggle } from 'redux/darkModeSlice'
 import { toggle as toggleMobile } from 'redux/mobileMenuOpenSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { MobileMenu } from '.'
+import { update } from 'redux/activePageSlice'
 
 const Navbar = () => {
     const isDark = useSelector(state => state.darkMode.value)
     const isMobileMenuOpen = useSelector(state => state.mobileMenuOpen.value)
+    const activePage = useSelector(state => state.activePage.value)
     const dispatch = useDispatch()
-    console.log(isMobileMenuOpen)
+    console.log(activePage)
     return (
         <>
             <div className={`px-6 md:px-20 py-8 border-b ${isDark ? 'border-[#21212B]' : 'border-[#E2E2EA]'} text-[#92929D] ${isDark ? 'bg-[#13131A]' : 'bg-white'} fixed top-0 w-full z-50`}>
                 <div className='flex justify-between items-center'>
                     <RxHamburgerMenu className='text-2xl flex md:hidden cursor-pointer' onClick={() => dispatch(toggleMobile())} />
-                    <Image alt='logo' src={logo} className='w-[90px] h-[22px] object-contain hidden md:flex' />
+                    <Link href='/' onClick={() => dispatch(update('home'))}>
+                        <Image alt='logo' src={logo} className='w-[90px] h-[22px] object-contain hidden md:flex cursor-pointer' />
+                    </Link>
                     <div className='gap-8 font hidden md:flex'>
-                        <Link href='/'>
-                            <div className='text-[#0BAB7C] font-bold text-base relative'>
+                        <Link href='/' onClick={() => dispatch(update('home'))}>
+                            <p className={`relative ${activePage === 'home' ? 'text-[#0BAB7C] font-bold text-base' : ''}`}>
                                 Overview
-                                <div className='h-[2px] w-[70px] bg-[#0BAB7C] bottom-[-33px] left-0 absolute' />
-                            </div>
+                                {activePage === 'home' && <div className='h-[2px] w-full bg-[#0BAB7C] bottom-[-33px] left-0 absolute' />}
+                            </p>
                         </Link>
-                        <Link href='/salaries'>
-                            <p>Estimated Salaries</p>
+                        <Link href='/salaries' onClick={() => dispatch(update('salaries'))}>
+                            <p className={`relative ${activePage === 'salaries' ? 'text-[#0BAB7C] font-bold text-base' : ''}`}>
+                                Estimated Salaries
+                                {activePage === 'salaries' && <div className='h-[2px] w-full bg-[#0BAB7C] bottom-[-33px] left-0 absolute' />}
+                            </p>
                         </Link>
-                        <Link href='/search'>
-                            <p>Job Search</p>
+                        <Link href='/search' onClick={() => dispatch(update('search'))}>
+                            <p className={`relative ${activePage === 'search' ? 'text-[#0BAB7C] font-bold text-base' : ''}`}>
+                                Job Search
+                                {activePage === 'search' && <div className='h-[2px] w-full bg-[#0BAB7C] bottom-[-33px] left-0 absolute' />}
+                            </p>
                         </Link>
                     </div>
                     <div className='flex items-center gap-3'>
