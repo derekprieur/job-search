@@ -28,7 +28,7 @@ export default function Salaries() {
                         </div>
                     </div>
                 </div>
-                <div className="md:w-[50%] md:flex md:pt-12">
+                <div className="md:w-[50%] md:flex md:pt-12 max-h-96 md:mt-16">
                     <BarChart />
                 </div>
             </div>

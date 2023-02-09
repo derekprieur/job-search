@@ -36,9 +36,6 @@ const BarChart = () => {
         })
         setChartOptions({
             plugins: {
-                legend: {
-                    position: 'top',
-                },
                 title: {
                     display: true,
                     text: 'Estimated Salary for NodeJS Developer in New York',
