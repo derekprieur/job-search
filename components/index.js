@@ -23,3 +23,4 @@ export { default as SearchedJobs } from './SearchedJobs';
 export { default as SearchedJobCard } from './SearchedJobCard';
 export { default as SearchFilterList } from './SearchFilterList';
 export { default as FilterOption } from './FilterOption';
+export { default as MobileMenu } from './MobileMenu';

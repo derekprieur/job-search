@@ -8,7 +8,6 @@ export default function Salaries() {
 
     return (
         <main>
-            <Navbar />
             <div className={`${!isDark ? 'bg-[#FAFAFB]' : 'bg-[#13131A]'}  h-full md:h-screen py-20 md:flex md:gap-20 md:px-20 px-6`}>
                 <div className="md:flex-col md:w-[50%]">
                     <div className="mt-6">

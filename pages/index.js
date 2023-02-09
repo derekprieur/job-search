@@ -14,7 +14,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Navbar />
         <div className={`${!isDark ? 'bg-[#FAFAFB]' : 'bg-[#13131A]'} h-full py-20 px-6 md:px-20`}>
           <Title title='Welcome to the Job Search Platform for Developers' />
           <div className='md:flex md:gap-10'>

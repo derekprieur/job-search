@@ -1,10 +1,13 @@
-import '../styles/globals.css'
+import { Provider, useSelector } from 'react-redux'
+
+import { MobileMenu, Navbar } from 'components'
 import { store } from '../store'
-import { Provider } from 'react-redux'
+import '../styles/globals.css'
 
 export default function App({ Component, pageProps }) {
   return (
     <Provider store={store}>
+      <Navbar />
       <Component {...pageProps} />
     </Provider>
   )
