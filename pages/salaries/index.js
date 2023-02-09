@@ -1,12 +1,6 @@
 import { useSelector } from "react-redux";
-import Image from "next/image";
 
 import { Navbar, SalaryInput, Title } from "components";
-import chartlight from '../../assets/chartlight.png'
-import chartdark from '../../assets/chartdark.png'
-import chartlightlarge from '../../assets/chartlightlarge.png'
-import chartdarklarge from '../../assets/chartdarklarge.png'
-import { useEffect, useState } from "react";
 import BarChart from "../../utils/barchart";
 
 export default function Salaries() {
