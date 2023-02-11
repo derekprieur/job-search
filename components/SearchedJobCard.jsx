@@ -11,7 +11,7 @@ const SearchedJobCard = () => {
     return (
         <div className={`p-5 rounded-xl ${isDark ? 'bg-[#1C1C24]' : 'bg-white'}`}>
             <div className='flex gap-3 items-start'>
-                <Image src={company} width={56} height={56} className={`p-2 rounded-lg ${isDark ? 'bg-[#21212B]' : 'bg-[#FAFAFB]'}`} />
+                <Image src={company} alt='company' width={56} height={56} className={`p-2 rounded-lg ${isDark ? 'bg-[#21212B]' : 'bg-[#FAFAFB]'}`} />
                 <div className='flex flex-col gap-1 flex-1'>
                     <div className='flex justify-between items-center'>
                         <h2 className={`font-bold text-lg ${isDark && 'text-white'}`}>Passionate Programmer</h2>

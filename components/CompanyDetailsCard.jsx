@@ -34,7 +34,7 @@ const CompanyDetailsCard = () => {
                 </div>
                 {isMobile && <div className={`border-b mt-6 ${isDark ? 'border-[#44444F]' : 'border-[#F1F1F5]'}`} />}
                 <div className={`${!isMobile && 'mt-6 mr-6'}`}>
-                    <Image className='ml-4 mt-6' src={people} />
+                    <Image className='ml-4 mt-6' src={people} alt='people' />
                     <div className='flex items-center border border-[#0BAB7C] text-[#0BAB7C] justify-center rounded-xl py-1 mt-6 w-[90%] mx-auto'>
                         <BsPlus className='text-3xl' />
                         <p>Follow</p>

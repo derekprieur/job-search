@@ -9,7 +9,7 @@ const MobileMenu = () => {
     const activePage = useSelector(state => state.activePage.value)
     const dispatch = useDispatch()
     return (
-        <div className={`fixed md:hidden h-screen w-full transition-transform duration-500 z-40 ${isMobileMenuOpen ? '-translate-y-[1000px]' : 'translate-x-0'} ${isDark ? 'bg-[#13131A]' : 'bg-white'}`}>
+        <div className={`fixed md:hidden h-screen w-full transition-transform duration-500 z-40 ${!isMobileMenuOpen ? '-translate-y-[1000px]' : 'translate-x-0'} ${isDark ? 'bg-[#13131A]' : 'bg-white'}`}>
             <ul className={`flex items-center justify-center w-full h-screen flex-col gap-10 text-3xl ${isDark && 'text-white'}`}>
                 <Link href='/' onClick={() => {
                     dispatch(toggleMobile())

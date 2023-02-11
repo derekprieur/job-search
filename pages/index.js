@@ -1,9 +1,34 @@
 import { FeaturedCompanies, LatestPosts, Navbar, RecommendedJobs, Schedule, Title } from "components";
 import Head from "next/head";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+
+import { update } from "redux/apiDataSlice";
 
 export default function Home() {
   const isDark = useSelector(state => state.darkMode.value)
+  const apiData = useSelector(state => state.apiData.value)
+  const dispatch = useDispatch()
+
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': 'KJwZZIJSFimshuivMSVGaiYzkRomp15f2vKjsnK4bKzuUzVLzA',
+      'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
+    }
+  };
+
+  useEffect(() => {
+    fetch('https://jsearch.p.rapidapi.com/search?query=React%20developer%20in%20USA&num_pages=1', options)
+      .then(response => response.json())
+      .then(response => {
+        console.log(response.data)
+        dispatch(update(response.data))
+      })
+      .catch(err => console.error(err));
+  }, [])
+
+  if (apiData.length === 0) return (<div className="h-screen w-full items-center justify-center flex">Loading...</div>)
 
   return (
     <>

@@ -12,10 +12,10 @@ const LatestPosts = () => {
                 <div className={`flex items-center border ${isDark && 'border-[#696974]'} gap-2 px-3 py-2 text-[#696974] rounded-lg`}>See All <MdOutlineKeyboardArrowDown className='text-xl' /></div>
             </div>
             <div className='flex flex-wrap gap-8'>
-                <JobPostCard />
-                <JobPostCard />
-                <JobPostCard />
-                <JobPostCard />
+                <JobPostCard number={0} />
+                <JobPostCard number={1} />
+                <JobPostCard number={2} />
+                <JobPostCard number={3} />
             </div>
         </div>
     )

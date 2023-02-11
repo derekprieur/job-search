@@ -17,7 +17,6 @@ const Navbar = () => {
     const isMobileMenuOpen = useSelector(state => state.mobileMenuOpen.value)
     const activePage = useSelector(state => state.activePage.value)
     const dispatch = useDispatch()
-    console.log(activePage)
     return (
         <>
             <div className={`px-6 md:px-20 py-8 border-b ${isDark ? 'border-[#21212B]' : 'border-[#E2E2EA]'} text-[#92929D] ${isDark ? 'bg-[#13131A]' : 'bg-white'} fixed top-0 w-full z-50`}>
@@ -28,22 +27,22 @@ const Navbar = () => {
                     </Link>
                     <div className='gap-8 font hidden md:flex'>
                         <Link href='/' onClick={() => dispatch(update('home'))}>
-                            <p className={`relative ${activePage === 'home' ? 'text-[#0BAB7C] font-bold text-base' : ''}`}>
+                            <div className={`relative ${activePage === 'home' ? 'text-[#0BAB7C] font-bold text-base' : ''}`}>
                                 Overview
                                 {activePage === 'home' && <div className='h-[2px] w-full bg-[#0BAB7C] bottom-[-33px] left-0 absolute' />}
-                            </p>
+                            </div>
                         </Link>
                         <Link href='/salaries' onClick={() => dispatch(update('salaries'))}>
-                            <p className={`relative ${activePage === 'salaries' ? 'text-[#0BAB7C] font-bold text-base' : ''}`}>
+                            <div className={`relative ${activePage === 'salaries' ? 'text-[#0BAB7C] font-bold text-base' : ''}`}>
                                 Estimated Salaries
                                 {activePage === 'salaries' && <div className='h-[2px] w-full bg-[#0BAB7C] bottom-[-33px] left-0 absolute' />}
-                            </p>
+                            </div>
                         </Link>
                         <Link href='/search' onClick={() => dispatch(update('search'))}>
-                            <p className={`relative ${activePage === 'search' ? 'text-[#0BAB7C] font-bold text-base' : ''}`}>
+                            <div className={`relative ${activePage === 'search' ? 'text-[#0BAB7C] font-bold text-base' : ''}`}>
                                 Job Search
                                 {activePage === 'search' && <div className='h-[2px] w-full bg-[#0BAB7C] bottom-[-33px] left-0 absolute' />}
-                            </p>
+                            </div>
                         </Link>
                     </div>
                     <div className='flex items-center gap-3'>
