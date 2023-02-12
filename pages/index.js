@@ -22,7 +22,6 @@ export default function Home() {
     fetch('https://jsearch.p.rapidapi.com/search?query=React%20developer%20in%20USA&num_pages=1', options)
       .then(response => response.json())
       .then(response => {
-        console.log(response.data)
         dispatch(update(response.data))
       })
       .catch(err => console.error(err));

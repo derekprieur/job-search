@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
-
-import { Navbar, SalaryInput, Title } from "components";
-import BarChart from "../../utils/barchart";
 import { useEffect, useState } from "react";
+
+import { SalaryInput, Title } from "components";
+import BarChart from "../../utils/barchart";
 
 export default function Salaries() {
     const isDark = useSelector(state => state.darkMode.value)
@@ -13,6 +13,8 @@ export default function Salaries() {
         radius: ''
     })
     const [salaryData, setSalaryData] = useState([])
+    console.log(salaryData)
+    console.log(salaryInput)
 
     const options = {
         method: 'GET',
@@ -27,7 +29,6 @@ export default function Salaries() {
         await fetch('https://jsearch.p.rapidapi.com/estimated-salary?job_title=NodeJS%20Developer&location=New-York%2C%20NY%2C%20USA&radius=100', options)
             .then(response => response.json())
             .then(response => {
-                console.log(response.data)
                 setSalaryData(response.data)
             })
             .catch(err => console.error(err));
@@ -42,7 +43,6 @@ export default function Salaries() {
         fetch(`https://jsearch.p.rapidapi.com/estimated-salary?job_title=${salaryInput.jobTitle}&location=${salaryInput.location}&radius=${salaryInput.radius}`, options)
             .then(response => response.json())
             .then(response => {
-                console.log(response.data)
                 setSalaryData(response.data)
             })
             .catch(err => console.error(err));
