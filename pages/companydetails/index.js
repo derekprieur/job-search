@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
 import { CompanyDetailsCard, Navbar, SimilarCompanyCard } from "components";
 import { update } from '../../redux/isMobileSlice'
+import Link from "next/link";
 
 export default function CompanyDetails() {
     const isMobile = useSelector(state => state.isMobile.value)
@@ -31,10 +32,12 @@ export default function CompanyDetails() {
         <main>
             <div className={`${!isDark ? 'bg-[#FAFAFB]' : 'bg-[#13131A]'}  h-full py-20 ${!isMobile ? 'flex px-20' : 'px-6'}`}>
                 <div className={`${!isMobile && 'w-[60%]'}`}>
-                    <button className={`mt-12 flex items-center gap-3  text-[#92929D] px-3 py-2 rounded-lg ${isDark ? 'bg-[#21212B]' : 'bg-[#F1F1F5]'}`}>
-                        <MdOutlineKeyboardArrowLeft className="text-2xl" />
-                        <p>Back</p>
-                    </button>
+                    <Link href='/'>
+                        <button className={`mt-12 flex items-center gap-3  text-[#92929D] px-3 py-2 rounded-lg ${isDark ? 'bg-[#21212B]' : 'bg-[#F1F1F5]'}`}>
+                            <MdOutlineKeyboardArrowLeft className="text-2xl" />
+                            <p>Back</p>
+                        </button>
+                    </Link>
                     <CompanyDetailsCard />
                 </div>
                 <div className={`${!isMobile && 'w-[40%]'}`}>
