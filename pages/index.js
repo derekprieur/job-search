@@ -1,7 +1,7 @@
-import { FeaturedCompanies, LatestPosts, Navbar, RecommendedJobs, Schedule, Title } from "components";
+import { FeaturedCompanies, LatestPosts, Loader, Navbar, RecommendedJobs, Schedule, Title } from "components";
 import Head from "next/head";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import { update } from "redux/apiDataSlice";
 
@@ -19,7 +19,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    fetch('https://jsearch.p.rapidapi.com/search?query=React%20developer%20in%20USA&num_pages=1', options)
+    fetch('https://jsearch.p.rapidapi.com/search?query=React%20developer%20in%20USA&num_pages=2', options)
       .then(response => response.json())
       .then(response => {
         dispatch(update(response.data))
@@ -27,7 +27,7 @@ export default function Home() {
       .catch(err => console.error(err));
   }, [])
 
-  if (apiData.length === 0) return (<div className="h-screen w-full items-center justify-center flex">Loading...</div>)
+  if (apiData.length === 0) return (<div className="h-screen w-full items-center justify-center flex"><Loader /></div>)
 
   return (
     <>

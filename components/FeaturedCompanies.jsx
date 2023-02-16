@@ -8,9 +8,9 @@ const FeaturedCompanies = () => {
         <div className='mt-10'>
             <h1 className={`font-semibold text-[22px] ${isDark && 'text-white'}`}>Featured Companies</h1>
             <div className='md:flex md:flex-wrap gap-9 '>
-                <FeaturedCompanyCard />
-                <FeaturedCompanyCard />
-                <FeaturedCompanyCard />
+                <FeaturedCompanyCard number={4} />
+                <FeaturedCompanyCard number={5} />
+                <FeaturedCompanyCard number={6} />
             </div>
         </div>
     )

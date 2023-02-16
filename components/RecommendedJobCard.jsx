@@ -3,15 +3,16 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import google from '../assets/google.png'
 
-const RecommendedJobCard = () => {
+const RecommendedJobCard = ({ hidden, number }) => {
     const isDark = useSelector(state => state.darkMode.value)
+    const apiData = useSelector(state => state.apiData.value)
     return (
-        <div className={`${isDark ? 'bg-[#21212B]' : 'bg-[#FAFAFB]'} px-4 py-5 rounded-lg`}>
+        <div className={`${isDark ? 'bg-[#21212B]' : 'bg-[#FAFAFB]'} px-4 py-5 rounded-lg ${hidden && 'hidden md:block'}`}>
             <div className='flex items-center justify-between'>
-                <div className='flex gap-4'>
-                    <Image src={google} alt='google' width={40} className='object-contain' />
+                <div className='flex gap-4 items-center'>
+                    <img src={apiData[number].employer_logo} alt='google' className='object-contain w-10 h-10' />
                     <div className='flex flex-col gap-1'>
-                        <h2 className={`${isDark && 'text-white'} font-semibold text-lg`}>Product Design</h2>
+                        <h2 className={`${isDark && 'text-white'} font-semibold text-lg`}>{apiData[number].job_title}</h2>
                         <div className='flex gap-2 text-[#696974] items-center'>
                             <p>Google</p>
                             <p>California, USA</p>
