@@ -25,6 +25,7 @@ export default function Home() {
         dispatch(update(response.data))
       })
       .catch(err => console.error(err));
+
   }, [])
 
   if (apiData.length === 0) return (<div className="h-screen w-full items-center justify-center flex"><Loader /></div>)

@@ -1,37 +1,46 @@
-import Image from 'next/image'
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { BsBookmark, BsDot } from 'react-icons/bs'
 
-import company from '../assets/companylogo.png'
 import { TextBubble } from '.'
+import Link from 'next/link'
+import { update } from 'redux/currentCompanyDataSlice'
 
-const SearchedJobCard = () => {
+const SearchedJobCard = ({ number }) => {
     const isDark = useSelector(state => state.darkMode.value)
+    const apiData = useSelector(state => state.apiData.value)
+    const dispatch = useDispatch()
+
+    const handleClick = () => {
+        dispatch(update(apiData[number]))
+    }
+
     return (
         <div className={`p-5 rounded-xl ${isDark ? 'bg-[#1C1C24]' : 'bg-white'}`}>
             <div className='flex gap-3 items-start'>
-                <Image src={company} alt='company' width={56} height={56} className={`p-2 rounded-lg ${isDark ? 'bg-[#21212B]' : 'bg-[#FAFAFB]'}`} />
+                <Link href='/companydetails' onClick={handleClick}>
+                    <img src={apiData[number]?.employer_logo} alt='company' className={`p-2 rounded-lg w-14 h-14 object-contain ${isDark ? 'bg-[#21212B]' : 'bg-[#FAFAFB]'}`} />
+                </Link>
                 <div className='flex flex-col gap-1 flex-1'>
                     <div className='flex justify-between items-center'>
-                        <h2 className={`font-bold text-lg ${isDark && 'text-white'}`}>Passionate Programmer</h2>
+                        <h2 className={`font-bold text-lg ${isDark && 'text-white'}`}>{apiData[number]?.job_title}</h2>
                         <div className='flex items-center gap-2 md:bg-[#FAFAFB] md:px-3 md:py-2 rounded-xl'>
                             <p className='hidden md:block text-[#92929D]'>Save job</p>
                             <BsBookmark className='text-[#92929D] text-xl md:text-lg' />
                         </div>
                     </div>
                     <div className='flex flex-col md:flex-row md:items-center'>
-                        <h3 className={`${isDark ? 'text-[#92929D]' : 'text-[#696974]'}`}>UIHUT Technologies LLC</h3>
+                        <h3 className={`${isDark ? 'text-[#92929D]' : 'text-[#696974]'}`}>{apiData[number]?.employer_name}</h3>
                         <BsDot className='hidden md:flex' />
                         <div className={`flex items-center ${isDark ? 'text-[#92929D]' : 'text-[#696974]'}`}>
-                            <h4>Sylhet, BD</h4>
+                            <h4>{apiData[number]?.job_city}, {apiData[number]?.job_country}</h4>
                             <BsDot />
                             <p>3 days ago</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <p className={`mt-6 pr-8 ${isDark ? 'text-white' : 'text-[#44444F]'}`}>Here at UIHUT, we are a passionate, fun-loving, growing team. We are looking for passionate programmers who want to solve technical challenges and learn and incorporate new technologies into their skillset to join our team and grow with us.</p>
+            {apiData[number]?.job_highlights.Responsibilities != undefined ? <p className={`mt-6 pr-8 ${isDark ? 'text-white' : 'text-[#44444F]'}`}>{apiData[number]?.job_highlights?.Responsibilities[0]}</p> : <p className={`mt-6 pr-8 ${isDark ? 'text-white' : 'text-[#44444F]'}`}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>}
             <div className='flex gap-1 mt-5'>
                 <TextBubble text='PHP' />
                 <TextBubble text='Laravel' />

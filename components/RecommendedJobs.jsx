@@ -6,7 +6,6 @@ import { RecommendedJobCard } from '.'
 const RecommendedJobs = () => {
     const isDark = useSelector(state => state.darkMode.value)
     const isMobile = useSelector(state => state.isMobile.value)
-    console.log(isMobile, 'isMobile')
     return (
         <>
             <div className='mt-12 flex justify-between items-center'>

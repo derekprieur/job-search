@@ -1,7 +1,5 @@
-import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 import logo from '../assets/jobit.png'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import { BiSun } from 'react-icons/bi'
@@ -14,9 +12,9 @@ import { update } from 'redux/activePageSlice'
 
 const Navbar = () => {
     const isDark = useSelector(state => state.darkMode.value)
-    const isMobileMenuOpen = useSelector(state => state.mobileMenuOpen.value)
     const activePage = useSelector(state => state.activePage.value)
     const dispatch = useDispatch()
+
     return (
         <>
             <div className={`px-6 md:px-20 py-8 border-b ${isDark ? 'border-[#21212B]' : 'border-[#E2E2EA]'} text-[#92929D] ${isDark ? 'bg-[#13131A]' : 'bg-white'} fixed top-0 w-full z-50`}>

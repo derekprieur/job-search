@@ -10,19 +10,23 @@ import { useSelector } from 'react-redux'
 const CompanyDetailsCard = () => {
     const isDark = useSelector(state => state.darkMode.value)
     const isMobile = useSelector(state => state.isMobile.value)
+    const currentCompanyData = useSelector(state => state.currentCompanyData.value)
+
+    console.log(currentCompanyData, 'currentCompanyData')
+
     return (
         <div>
             <div className='w-full relative'>
                 <Image src={background} alt='background' className='w-full rounded-t-3xl mt-7 max-h-48' />
                 <div className='absolute bg-[#FAFAFB] bottom-[-30px] rounded-lg border left-4'>
-                    <Image src={companylogo} alt='company logo' width={60} className='object-cover p-[1px]' />
+                    <img src={currentCompanyData?.employer_logo} alt='company logo' className='object-cover p-[1px] w-[60px]' />
                 </div>
             </div>
             <div className={`${!isMobile && 'flex justify-between'}`}>
                 <div>
-                    <h1 className={`mt-12 px-4 font-semibold text-2xl ${isDark && 'text-white'}`}>UIHUT</h1>
+                    <h1 className={`mt-12 px-4 font-semibold text-2xl ${isDark && 'text-white'}`}>{currentCompanyData?.employer_name}</h1>
                     <div className={`px-4 mt-4 flex items-center gap-2  ${isDark ? 'text-[#92929D]' : 'text-[#696974]'}`}>
-                        <p>UIHUT Technologies LLC </p>
+                        <p>{currentCompanyData?.employer_name} </p>
                         <BsDot />
                         <p>Sylhet, BD</p>
                     </div>

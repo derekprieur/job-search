@@ -11,7 +11,6 @@ const FeaturedCompanyCard = ({ number }) => {
     const isDark = useSelector(state => state.darkMode.value)
     const apiData = useSelector(state => state.apiData.value)
 
-    console.log(apiData, 'apiData')
     return (
         <div className={`mt-10 ${isDark ? 'bg-[#1C1C24]' : 'bg-white'} px-4 py-6 rounded-lg`}>
             <Link href='/companydetails'>

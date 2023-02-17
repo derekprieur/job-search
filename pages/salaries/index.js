@@ -13,8 +13,6 @@ export default function Salaries() {
         radius: ''
     })
     const [salaryData, setSalaryData] = useState([])
-    console.log(salaryData)
-    console.log(salaryInput)
 
     const options = {
         method: 'GET',
