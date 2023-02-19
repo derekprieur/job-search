@@ -10,6 +10,8 @@ export default function Home() {
   const apiData = useSelector(state => state.apiData.value)
   const dispatch = useDispatch()
 
+  console.log(apiData, "apiData")
+
   const options = {
     method: 'GET',
     headers: {

@@ -9,14 +9,14 @@ const JobDetailList = ({ title }) => {
         <div className='px-4 flex flex-col gap-3'>
             <h2 className='text-[#171725] font-semibold text-lg'>{title}</h2>
             {title === 'Responsibilities' && responsibilitiesList.map((item, index) => (
-                <div className='flex gap-3'>
+                <div key={index} className='flex gap-3'>
                     <div className='w-3 h-3 border-2 border-[#0BAB7C] rounded-full mt-2 shrink-0' />
                     <p className='text-[#696974] font-normal'>{item}
                     </p>
                 </div>
             ))}
             {title === 'Qualifications and Skill Sets' && skillList.map((item, index) => (
-                <div className='flex gap-3'>
+                <div key={index} className='flex gap-3'>
                     <div className='w-3 h-3 border-2 border-[#0BAB7C] rounded-full mt-2 shrink-0' />
                     <p className='text-[#696974] font-normal'>{item}
                     </p>

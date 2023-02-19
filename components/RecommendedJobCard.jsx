@@ -1,16 +1,23 @@
-import Image from 'next/image'
-import React from 'react'
-import { useSelector } from 'react-redux'
-import google from '../assets/google.png'
+import Link from 'next/link'
+import { useDispatch, useSelector } from 'react-redux'
+import { update } from 'redux/currentCompanyDataSlice'
 
 const RecommendedJobCard = ({ hidden, number }) => {
     const isDark = useSelector(state => state.darkMode.value)
     const apiData = useSelector(state => state.apiData.value)
+    const dispatch = useDispatch()
+
+    const handleClickCompany = () => {
+        dispatch(update(apiData[number]))
+    }
+
     return (
         <div className={`${isDark ? 'bg-[#21212B]' : 'bg-[#FAFAFB]'} px-4 py-5 rounded-lg ${hidden && 'hidden md:block'}`}>
             <div className='flex items-center justify-between gap-1'>
                 <div className='flex gap-4 items-center'>
-                    <img src={apiData[number].employer_logo} alt='job' className='object-contain w-10 h-10' />
+                    <Link href='/companydetails' onClick={handleClickCompany}>
+                        <img src={apiData[number].employer_logo} alt='job' className='object-contain w-10 h-10' />
+                    </Link>
                     <div className='flex flex-col gap-1'>
                         <h2 className={`${isDark && 'text-white'} font-semibold text-lg max-w-xs`}>{apiData[number].job_title}</h2>
                         <div className='flex gap-2 text-[#696974] items-center'>

@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
 import background from '../assets/background.png'
-import companylogo from '../assets/companylogo.png'
 import { BsDot, BsPlus } from 'react-icons/bs'
 import people from '../assets/people.png'
 import { CompanyJobs } from '.'
@@ -11,8 +10,6 @@ const CompanyDetailsCard = () => {
     const isDark = useSelector(state => state.darkMode.value)
     const isMobile = useSelector(state => state.isMobile.value)
     const currentCompanyData = useSelector(state => state.currentCompanyData.value)
-
-    console.log(currentCompanyData, 'currentCompanyData')
 
     return (
         <div>
@@ -28,7 +25,7 @@ const CompanyDetailsCard = () => {
                     <div className={`px-4 mt-4 flex items-center gap-2  ${isDark ? 'text-[#92929D]' : 'text-[#696974]'}`}>
                         <p>{currentCompanyData?.employer_name} </p>
                         <BsDot />
-                        <p>Sylhet, BD</p>
+                        <p>{currentCompanyData?.job_city} {currentCompanyData?.job_city != null && ','} {currentCompanyData?.job_country}</p>
                     </div>
                     <div className={`px-4 mt-2 flex items-center gap-2  ${isDark ? 'text-[#92929D]' : 'text-[#696974]'}`}>
                         <p>Design Resources Platform</p>

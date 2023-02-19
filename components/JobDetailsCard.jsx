@@ -5,15 +5,19 @@ import companylogo from '../assets/companylogo.png'
 import { BsBookmark, BsDot, BsPlus } from 'react-icons/bs'
 import { BiDotsVerticalRounded } from 'react-icons/bi'
 import { JobDetailList, SimilarJobsCard } from '.'
+import { useSelector } from 'react-redux'
 
 const JobDetailsCard = () => {
+    const currentJobData = useSelector(state => state.currentJobData.value)
+    console.log(currentJobData, 'currentJobData')
+
     return (
         <div className='flex flex-col md:flex-row md:gap-10'>
             <div className='bg-white px-4 py-5 mt-8 rounded-2xl md:w-[70%]'>
                 <div className='w-full relative'>
                     <Image src={background} alt='background' className='w-full rounded-t-3xl mt-2 md:max-h-48' />
                     <div className='absolute bg-[#FAFAFB] bottom-[-30px] rounded-lg border left-4'>
-                        <Image src={companylogo} alt='company logo' width={60} className='object-contain p-[1px]' />
+                        <img src={companylogo} alt='company logo' className='object-contain p-[1px] w-[60px]' />
                     </div>
                 </div>
                 <div className='mt-14 px-4 flex justify-between items-center'>

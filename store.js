@@ -5,6 +5,8 @@ import mobileMenuOpenReducer from './redux/mobileMenuOpenSlice';
 import activePageReducer from './redux/activePageSlice';
 import apiDataReducer from './redux/apiDataSlice';
 import currentCompanyDataReducer from './redux/currentCompanyDataSlice';
+import companyJobsReducer from './redux/companyJobsSlice';
+import currentJobDataReducer from './redux/currentJobDataSlice';
 
 export const store = configureStore({
     reducer: {
@@ -14,5 +16,7 @@ export const store = configureStore({
         activePage: activePageReducer,
         apiData: apiDataReducer,
         currentCompanyData: currentCompanyDataReducer,
+        companyJobs: companyJobsReducer,
+        currentJobData: currentJobDataReducer,
     },
 });

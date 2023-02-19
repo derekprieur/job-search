@@ -4,7 +4,9 @@ import { IoLocationOutline } from 'react-icons/io5'
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
 import { RiSuitcaseLine } from 'react-icons/ri'
 import { useDispatch, useSelector } from 'react-redux'
+
 import { update } from '../redux/apiDataSlice'
+import Loader from './Loader'
 
 const FindJobsCard = ({ btnTitle }) => {
     const isDark = useSelector(state => state.darkMode.value)
@@ -25,7 +27,6 @@ const FindJobsCard = ({ btnTitle }) => {
     };
 
     const handleSearch = () => {
-        console.log(search)
         fetch(`https://jsearch.p.rapidapi.com/search?query=${search.jobTitle}%20in%20USA&num_pages=2`, options)
             .then(response => response.json())
             .then(response => {

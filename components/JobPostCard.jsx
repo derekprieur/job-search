@@ -1,28 +1,64 @@
-import company from '../assets/companylogo.png'
+import { useEffect, useState } from 'react'
 import { HiOutlineDotsHorizontal } from 'react-icons/hi'
 import { MdOutlinePeopleAlt } from 'react-icons/md'
 import { RiSuitcaseLine } from 'react-icons/ri'
 import { AiOutlineClockCircle } from 'react-icons/ai'
-import { TextBubble } from '.'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import Link from 'next/link'
+
+import { TextBubble } from '.'
+import company from '../assets/companylogo.png'
+import { update } from 'redux/currentCompanyDataSlice'
+import { update as updateJob } from 'redux/currentJobDataSlice'
 
 const JobPostCard = ({ number }) => {
     const isDark = useSelector(state => state.darkMode.value)
     const apiData = useSelector(state => state.apiData.value)
+    const dispatch = useDispatch()
+    const [estimatedSalary, setEstimatedSalary] = useState([])
+
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': 'KJwZZIJSFimshuivMSVGaiYzkRomp15f2vKjsnK4bKzuUzVLzA',
+            'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
+        }
+    };
+
+    const handleClickCompany = () => {
+        dispatch(update(apiData[number]))
+    }
+
+    const handleClickJob = () => {
+        dispatch(updateJob(apiData[number]))
+    }
+
+    useEffect(() => {
+        fetch(`https://jsearch.p.rapidapi.com/estimated-salary?job_title=${apiData[number].job_title}&location=New-York%2C%20NY%2C%20USA&radius=100`, options)
+            .then(response => response.json())
+            .then(response => {
+                setEstimatedSalary(response)
+                console.log(response)
+            })
+            .catch(err => console.error(err));
+    }, [])
 
     return (
-        <div className={`${isDark ? 'bg-[#1C1C24]' : 'bg-white'} px-4 py-6 mt-8 rounded-lg max-w-md flex flex-col justify-between`}>
+        <div className={`${isDark ? 'bg-[#1C1C24]' : 'bg-white'} px-4 py-6 mt-8 rounded-lg max-w-md flex flex-col justify-between w-full`}>
             <div>
                 <div className='flex gap-6 justify-between items-center'>
-                    <div>
-                        <div className={`${isDark ? 'bg-[#1C1C24] border border-[#21212B]' : 'bg-[#FAFAFB]'} p-2 rounded-lg`}>
-                            <img src={apiData[number]?.employer_logo || company} alt='company' className='object-contain w-[50px] h-[50px]' />
+                    <Link href='/companydetails' onClick={handleClickCompany}>
+                        <div>
+                            <div className={`${isDark ? 'bg-[#1C1C24] border border-[#21212B]' : 'bg-[#FAFAFB]'} p-2 rounded-lg`}>
+                                <img src={apiData[number]?.employer_logo || company} alt='company' className='object-contain w-[50px] h-[50px]' />
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                     <div className='flex-1 flex-col'>
                         <div className='flex justify-between'>
-                            <h2 className={`font-semibold text-lg ${isDark && 'text-white'}`}>{apiData[number]?.job_title}</h2>
+                            <Link href='/jobdetails' onClick={handleClickJob}>
+                                <h2 className={`font-semibold text-lg ${isDark && 'text-white'}`}>{apiData[number]?.job_title}</h2>
+                            </Link>
                             <HiOutlineDotsHorizontal className='text-[#B5B5BE] text-xl' />
                         </div>
                         <div className='flex gap-1 mt-4'>
