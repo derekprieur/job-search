@@ -9,7 +9,6 @@ import { useSelector } from 'react-redux'
 
 const JobDetailsCard = () => {
     const currentJobData = useSelector(state => state.currentJobData.value)
-    console.log(currentJobData, 'currentJobData')
 
     return (
         <div className='flex flex-col md:flex-row md:gap-10'>

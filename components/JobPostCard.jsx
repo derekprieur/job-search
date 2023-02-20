@@ -34,11 +34,10 @@ const JobPostCard = ({ number }) => {
     }
 
     useEffect(() => {
-        fetch(`https://jsearch.p.rapidapi.com/estimated-salary?job_title=${apiData[number].job_title}&location=New-York%2C%20NY%2C%20USA&radius=100`, options)
+        fetch(`https://jsearch.p.rapidapi.com/estimated-salary?job_title=${apiData[number].job_title}&location=${apiData[number].job_city}&radius=100`, options)
             .then(response => response.json())
             .then(response => {
-                setEstimatedSalary(response)
-                console.log(response)
+                setEstimatedSalary(response.data)
             })
             .catch(err => console.error(err));
     }, [])
@@ -47,7 +46,7 @@ const JobPostCard = ({ number }) => {
         <div className={`${isDark ? 'bg-[#1C1C24]' : 'bg-white'} px-4 py-6 mt-8 rounded-lg max-w-md flex flex-col justify-between w-full`}>
             <div>
                 <div className='flex gap-6 justify-between items-center'>
-                    <Link href='/companydetails' onClick={handleClickCompany}>
+                    <Link href={`/companydetails/${apiData[number]?.employer_name.toLowerCase()}`} onClick={handleClickCompany}>
                         <div>
                             <div className={`${isDark ? 'bg-[#1C1C24] border border-[#21212B]' : 'bg-[#FAFAFB]'} p-2 rounded-lg`}>
                                 <img src={apiData[number]?.employer_logo || company} alt='company' className='object-contain w-[50px] h-[50px]' />
@@ -78,7 +77,7 @@ const JobPostCard = ({ number }) => {
                     <TextBubble text='3 days left' icon={<AiOutlineClockCircle />} />
                 </div>
                 <div className='flex justify-between mt-7 items-center'>
-                    <p className={`font-extrabold text-xl ${isDark && 'text-white'}`}>$15k-20k<span className={`${isDark ? 'text-white' : 'text-[#696974]'}  font-normal text-lg`}>/month</span></p>
+                    <p className={`font-extrabold text-xl ${isDark && 'text-white'}`}>{estimatedSalary && estimatedSalary.length > 0 ? `$${(estimatedSalary[0].min_salary / 12000).toFixed(0)}k-${(estimatedSalary[0].max_salary / 12000).toFixed(0)}k` : '$15k-20k'}<span className={`${isDark ? 'text-white' : 'text-[#696974]'}  font-normal text-lg`}>/month</span></p>
                     <Link href={apiData[number]?.job_apply_link || '/'} target='_blank' >
                         <button className='bg-[#0BAB7C] text-white px-4 py-2 rounded-lg font-medium text-lg'>Apply Now</button>
                     </Link>

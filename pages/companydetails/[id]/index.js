@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { MdOutlineKeyboardArrowLeft } from 'react-icons/md'
-import { CompanyDetailsCard, Navbar, SimilarCompanyCard } from "components";
-import { update } from '../../redux/isMobileSlice'
 import Link from "next/link";
+
+import { CompanyDetailsCard, SimilarCompanyCard } from "components";
+import { update } from '../../../redux/isMobileSlice'
 
 export default function CompanyDetails() {
     const isMobile = useSelector(state => state.isMobile.value)

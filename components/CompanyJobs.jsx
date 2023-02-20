@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { RxMagnifyingGlass } from 'react-icons/rx'
-import { CiBellOn } from 'react-icons/ci'
+import { FiBell } from 'react-icons/fi'
 import { RecentJobPostCard } from '.'
 import { useDispatch, useSelector } from 'react-redux'
 import { update } from '../redux/companyJobsSlice'
@@ -29,7 +29,6 @@ const CompanyJobs = () => {
             .catch(err => console.error(err));
     }, [])
 
-    console.log(companyJobs, 'companyJobs')
 
     return (
         <div className={`mx-4 mt-8 px-4 py-5 rounded-xl ${isDark ? 'bg-[#1C1C24]' : 'bg-white'}`}>
@@ -40,7 +39,7 @@ const CompanyJobs = () => {
                     <button className='bg-[#0BAB7C] py-1 px-3 rounded-lg text-white'>Search</button>
                 </div>
                 <div className={`flex items-center bg-transparent border py-3 px-3 gap-2 rounded-xl mt-4 ${isDark && 'border-[#757D8A]'}`}>
-                    <CiBellOn className='text-[#757D8A] text-xl' />
+                    <FiBell className='text-[#757D8A] text-xl' />
                     <p className='text-[#757D8A]'>Create Job Alert</p>
                 </div>
             </div>
