@@ -4,7 +4,9 @@ const responsibilitiesList = ["Design, build, test, and deploy software applicat
 
 const skillList = ["3+ years of professional experience working on this field", "Bachelor's degree in computer science, software engineering, or related field", "Proficiency in at least one programming language (e.g., Java, C#, C++)", "Back-end development expertise", "Strong problem-solving and communication skills", "Experience with build tools such as Gradle and Maven", "Good working knowledge of the Linux operating system"]
 
-const JobDetailList = ({ title }) => {
+const JobDetailList = ({ title, list }) => {
+    console.log(list, 'list')
+    
     return (
         <div className='px-4 flex flex-col gap-3'>
             <h2 className='text-[#171725] font-semibold text-lg'>{title}</h2>

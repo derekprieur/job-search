@@ -55,7 +55,7 @@ const JobPostCard = ({ number }) => {
                     </Link>
                     <div className='flex-1 flex-col'>
                         <div className='flex justify-between'>
-                            <Link href='/jobdetails' onClick={handleClickJob}>
+                            <Link href={`/jobdetails/${apiData[number]?.job_title.toLowerCase()}`} onClick={handleClickJob}>
                                 <h2 className={`font-semibold text-lg ${isDark && 'text-white'}`}>{apiData[number]?.job_title}</h2>
                             </Link>
                             <HiOutlineDotsHorizontal className='text-[#B5B5BE] text-xl' />
