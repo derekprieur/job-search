@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 
 import { update } from "redux/apiDataSlice";
+import { getUserLocationFromAPI } from "utils/userLocation";
 
 export default function Home() {
   const isDark = useSelector(state => state.darkMode.value)
@@ -21,7 +22,9 @@ export default function Home() {
   };
 
   useEffect(() => {
-    fetch('https://jsearch.p.rapidapi.com/search?query=React%20developer%20in%20USA&num_pages=2', options)
+    const location = getUserLocationFromAPI()
+    console.log(location, "location from api")
+    fetch(`https://jsearch.p.rapidapi.com/search?query=React%20developer%20in%20${location?.city}&num_pages=2`, options)
       .then(response => response.json())
       .then(response => {
         dispatch(update(response.data))
@@ -30,7 +33,6 @@ export default function Home() {
   }, [])
 
   if (apiData?.length === 0 || !apiData) return (<div className="h-screen w-full items-center justify-center flex"><Loader /></div>)
-
 
   return (
     <>

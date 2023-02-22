@@ -24,13 +24,27 @@ export default function Salaries() {
 
     const fetchData = async () => {
         setLoading(true)
-        await fetch('https://jsearch.p.rapidapi.com/estimated-salary?job_title=NodeJS%20Developer&location=New-York%2C%20NY%2C%20USA&radius=100', options)
-            .then(response => response.json())
-            .then(response => {
-                setSalaryData(response.data)
-            })
-            .catch(err => console.error(err));
-        setLoading(false)
+        navigator.geolocation.getCurrentPosition((position) => {
+            const geoApiUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=en`;
+
+            fetch(geoApiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data, "data from api 123")
+                    fetch(`https://jsearch.p.rapidapi.com/estimated-salary?job_title=NodeJS%20Developer&location=${data?.countryCode}&radius=100`, options)
+                        .then(response => response.json())
+                        .then(response => {
+                            setSalaryData(response.data)
+                            setSalaryInput({
+                                jobTitle: 'Node JS Developer',
+                                location: data?.countryCode,
+                                radius: 100
+                            })
+                        })
+                        .catch(err => console.error(err));
+                    setLoading(false)
+                })
+        });
     }
 
     const handleSearch = () => {
@@ -45,7 +59,6 @@ export default function Salaries() {
             })
             .catch(err => console.error(err));
     }
-
     useEffect(() => {
         fetchData()
     }, [])
