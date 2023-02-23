@@ -24,7 +24,7 @@ const SearchedJobCard = ({ number }) => {
                 <div className='flex flex-col gap-1 flex-1'>
                     <div className='flex justify-between items-center'>
                         <h2 className={`font-bold text-lg ${isDark && 'text-white'}`}>{apiData[number]?.job_title}</h2>
-                        <div className='flex items-center gap-2 md:bg-[#FAFAFB] md:px-3 md:py-2 rounded-xl'>
+                        <div className={`flex items-center gap-2 md:px-3 md:py-2 rounded-xl ${isDark ? 'md:bg-[#21212B]' : 'md:bg-[#FAFAFB]'}`}>
                             <p className='hidden md:block text-[#92929D]'>Save job</p>
                             <BsBookmark className='text-[#92929D] text-xl md:text-lg' />
                         </div>

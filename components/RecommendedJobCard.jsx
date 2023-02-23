@@ -36,7 +36,7 @@ const RecommendedJobCard = ({ hidden, number }) => {
             <div className='flex items-center justify-between gap-1'>
                 <div className='flex gap-4 items-center'>
                     <Link href='/companydetails' onClick={handleClickCompany}>
-                        <img src={apiData[number]?.employer_logo} alt='job' className='object-contain w-10 h-10' />
+                        <img src={apiData[number]?.employer_logo || 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'} alt='job' className='object-contain w-10 h-10' />
                     </Link>
                     <div className='flex flex-col gap-1'>
                         <h2 className={`${isDark && 'text-white'} font-semibold text-lg max-w-xs`}>{apiData[number]?.job_title}</h2>

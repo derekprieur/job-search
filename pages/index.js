@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 
 import { update } from "redux/apiDataSlice";
-import { getUserLocationFromAPI } from "utils/userLocation";
 
 export default function Home() {
   const isDark = useSelector(state => state.darkMode.value)
@@ -21,15 +20,27 @@ export default function Home() {
     }
   };
 
+  const fetchData = async () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log(position, "position")
+      const geoApiUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=en`;
+
+      fetch(geoApiUrl)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data, "data from api 456")
+          fetch(`https://jsearch.p.rapidapi.com/search?query=React%20developer%20in%20${data?.city}&num_pages=2`, options)
+            .then(response => response.json())
+            .then(response => {
+              dispatch(update(response.data))
+            })
+            .catch(err => console.error(err));
+        })
+    });
+  }
+
   useEffect(() => {
-    // const location = getUserLocationFromAPI()
-    console.log('test dashboard')
-    fetch(`https://jsearch.p.rapidapi.com/search?query=React%20developer%20in%20${location?.city}&num_pages=2`, options)
-      .then(response => response.json())
-      .then(response => {
-        dispatch(update(response.data))
-      })
-      .catch(err => console.error(err));
+    fetchData()
   }, [])
 
   if (apiData?.length === 0 || !apiData) return (<div className="h-screen w-full items-center justify-center flex"><Loader /></div>)

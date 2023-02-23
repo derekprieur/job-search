@@ -40,7 +40,8 @@ const JobPostCard = ({ number }) => {
                 setEstimatedSalary(response.data)
             })
             .catch(err => console.error(err));
-    }, [])
+    }, [apiData])
+
 
     return (
         <div className={`${isDark ? 'bg-[#1C1C24]' : 'bg-white'} px-4 py-6 mt-8 rounded-lg max-w-md flex flex-col justify-between w-full`}>
@@ -49,7 +50,7 @@ const JobPostCard = ({ number }) => {
                     <Link href={`/companydetails/${apiData[number]?.employer_name.toLowerCase()}`} onClick={handleClickCompany}>
                         <div>
                             <div className={`${isDark ? 'bg-[#1C1C24] border border-[#21212B]' : 'bg-[#FAFAFB]'} p-2 rounded-lg`}>
-                                <img src={apiData[number]?.employer_logo || company} alt='company' className='object-contain w-[50px] h-[50px]' />
+                                <img src={apiData[number]?.employer_logo || 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'} alt='company' className='object-contain w-[50px] h-[50px]' />
                             </div>
                         </div>
                     </Link>
@@ -61,10 +62,10 @@ const JobPostCard = ({ number }) => {
                             <HiOutlineDotsHorizontal className='text-[#B5B5BE] text-xl' />
                         </div>
                         <div className='flex gap-1 mt-4'>
-                            <TextBubble text='PHP' />
-                            <TextBubble text='Laravel' />
-                            <TextBubble text='CSS' />
-                            <TextBubble text='React' />
+                            <TextBubble text={apiData[number]?.job_required_skills && apiData[number]?.job_required_skills[0] || 'React'} />
+                            <TextBubble text={apiData[number]?.job_required_skills && apiData[number]?.job_required_skills[1] || 'Laravel'} />
+                            <TextBubble text={apiData[number]?.job_required_skills && apiData[number]?.job_required_skills[2] || 'CSS'} />
+                            <TextBubble text={apiData[number]?.job_required_skills && apiData[number]?.job_required_skills[3] || 'PHP'} />
                         </div>
                     </div>
                 </div>
