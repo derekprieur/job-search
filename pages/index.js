@@ -22,8 +22,8 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const location = getUserLocationFromAPI()
-    console.log(location, "location from api")
+    // const location = getUserLocationFromAPI()
+    console.log('test dashboard')
     fetch(`https://jsearch.p.rapidapi.com/search?query=React%20developer%20in%20${location?.city}&num_pages=2`, options)
       .then(response => response.json())
       .then(response => {

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { HiOutlineDotsHorizontal } from 'react-icons/hi'
 import { useSelector } from 'react-redux'
@@ -57,7 +58,9 @@ const RecentJobPostCard = ({ number }) => {
             </div>
             <div className='flex justify-between mt-7 items-center'>
                 <p className={`font-extrabold text-xl ${isDark && 'text-white'}`}>{estimatedSalary && estimatedSalary.length > 0 ? `$${(estimatedSalary[0].min_salary / 12000).toFixed(0)}k-${(estimatedSalary[0].max_salary / 12000).toFixed(0)}k` : '$15k-20k'}<span className={`${isDark ? 'text-white' : 'text-[#696974]'}  font-normal text-lg`}>/month</span></p>
+                <Link href={companyJobs[number]?.job_apply_link || '/'} target='_blank' >
                 <button className='bg-[#0BAB7C]/10 text-[#0BAB7C] px-4 py-2 rounded-lg font-medium text-lg'>Apply Now</button>
+                </Link>
             </div>
         </div>
     )

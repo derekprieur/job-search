@@ -25,6 +25,7 @@ export default function Salaries() {
     const fetchData = async () => {
         setLoading(true)
         navigator.geolocation.getCurrentPosition((position) => {
+            console.log(position, "position")
             const geoApiUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=en`;
 
             fetch(geoApiUrl)
@@ -45,6 +46,20 @@ export default function Salaries() {
                     setLoading(false)
                 })
         });
+        if (salaryData.length === 0) {
+            fetch(`https://jsearch.p.rapidapi.com/estimated-salary?job_title=NodeJS%20Developer&location=USA&radius=100`, options)
+                        .then(response => response.json())
+                        .then(response => {
+                            setSalaryData(response.data)
+                            setSalaryInput({
+                                jobTitle: 'Node JS Developer',
+                                location: 'USA',
+                                radius: 100
+                            })
+                        })
+                        .catch(err => console.error(err));
+                    setLoading(false)
+        }
     }
 
     const handleSearch = () => {

@@ -43,14 +43,14 @@ export default function CompanyDetails() {
                 </div>
                 <div className={`${!isMobile && 'w-[40%]'}`}>
                     <h1 className={`font-bold px-4 text-[22px] mt-10 mb-8 ${isDark && 'text-white'}`}>Similar Companies</h1>
-                    <SimilarCompanyCard />
-                    <SimilarCompanyCard />
-                    <SimilarCompanyCard />
-                    <SimilarCompanyCard />
-                    <SimilarCompanyCard />
-                    <SimilarCompanyCard />
-                    <SimilarCompanyCard />
-                    <SimilarCompanyCard />
+                    <SimilarCompanyCard number={0} />
+                    <SimilarCompanyCard number={1} />
+                    <SimilarCompanyCard number={2} />
+                    <SimilarCompanyCard number={3} />
+                    <SimilarCompanyCard number={4} />
+                    <SimilarCompanyCard number={5} />
+                    <SimilarCompanyCard number={6} />
+                    <SimilarCompanyCard number={7} />
                 </div>
             </div>
         </main>
