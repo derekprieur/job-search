@@ -25,3 +25,4 @@ export { default as SearchFilterList } from './SearchFilterList';
 export { default as FilterOption } from './FilterOption';
 export { default as MobileMenu } from './MobileMenu';
 export { default as Loader } from './Loader';
+export { default as SignIn } from './SignIn';

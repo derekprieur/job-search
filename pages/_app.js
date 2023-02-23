@@ -1,14 +1,17 @@
-import { Provider, useSelector } from 'react-redux'
+import { Provider } from 'react-redux'
+import { SessionProvider } from 'next-auth/react'
 
-import { MobileMenu, Navbar } from 'components'
+import { Navbar } from 'components'
 import { store } from '../store'
 import '../styles/globals.css'
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps: { session, ...pageProps } }) {
   return (
     <Provider store={store}>
-      <Navbar />
-      <Component {...pageProps} />
+      <SessionProvider session={session}>
+        <Navbar />
+        <Component {...pageProps} />
+      </SessionProvider>
     </Provider>
   )
 }
