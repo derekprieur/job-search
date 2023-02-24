@@ -10,8 +10,6 @@ export default function Home() {
   const apiData = useSelector(state => state.apiData.value)
   const dispatch = useDispatch()
 
-  console.log(apiData, "apiData")
-
   const options = {
     method: 'GET',
     headers: {
@@ -22,13 +20,11 @@ export default function Home() {
 
   const fetchData = async () => {
     navigator.geolocation.getCurrentPosition((position) => {
-      console.log(position, "position")
       const geoApiUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=en`;
 
       fetch(geoApiUrl)
         .then(response => response.json())
         .then(data => {
-          console.log(data, "data from api 456")
           fetch(`https://jsearch.p.rapidapi.com/search?query=React%20developer%20in%20${data?.city}&num_pages=2`, options)
             .then(response => response.json())
             .then(response => {

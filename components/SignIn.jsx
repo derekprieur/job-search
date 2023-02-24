@@ -6,12 +6,12 @@ const SignIn = () => {
 
     if (session) {
         return (
-            <img src={session?.user?.image} onClick={() => signOut()} className='w-9 h-9 rounded-full' />
+            <img src={session?.user?.image} onClick={() => signOut()} className='w-9 h-9 rounded-full cursor-pointer' />
         )
     }
     return (
         <>
-            <button onClick={() => signIn('google')} className={`text-[#0BAB7C] border-2 border-[#0BAB7C] rounded-xl py-1 px-2 font-bold `}>Sign In</button>
+            <button onClick={() => signIn('google')} className={`text-[#0BAB7C] border-2 border-[#0BAB7C] rounded-xl py-1 px-2 font-bold cursor-pointer `}>Sign In</button>
         </>
     )
 }
