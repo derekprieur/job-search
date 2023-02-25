@@ -1,9 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { MdOutlineCheckBoxOutlineBlank, MdOutlineCheckBox } from 'react-icons/md'
 import { useSelector } from 'react-redux'
 
-const FilterOption = ({ active, title, count }) => {
+const FilterOption = ({ title, count, type }) => {
     const isDark = useSelector(state => state.darkMode.value)
+    const searchFilter = useSelector(state => state.searchFilter.value)
+    const [active, setActive] = useState(false)
+
+    useEffect(() => {
+        if (type == 'employment') {
+            // check if title is in searchFilter.employment[]
+            if (searchFilter.employment.includes(title)) {
+                setActive(true)
+            } else {
+                setActive(false)
+            }
+        }
+    }, [])
+
+
     return (
         <div className='flex justify-between'>
             <div className='flex items-center gap-3'>
