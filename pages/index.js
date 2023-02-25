@@ -18,21 +18,34 @@ export default function Home() {
     }
   };
 
+  console.log(apiData, 'apiData')
+
   const fetchData = async () => {
     navigator.geolocation.getCurrentPosition((position) => {
+      console.log(position, 'position')
       const geoApiUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=en`;
 
       fetch(geoApiUrl)
         .then(response => response.json())
         .then(data => {
+          console.log(data, 'data')
           fetch(`https://jsearch.p.rapidapi.com/search?query=React%20developer%20in%20${data?.city}&num_pages=2`, options)
             .then(response => response.json())
             .then(response => {
               dispatch(update(response.data))
+              return
             })
             .catch(err => console.error(err));
         })
     });
+
+    fetch(`https://jsearch.p.rapidapi.com/search?query=React%20developer%20in%20New%20York&num_pages=2`, options)
+      .then(response => response.json())
+      .then(response => {
+        dispatch(update(response.data))
+        return
+      })
+      .catch(err => console.error(err));
   }
 
   useEffect(() => {

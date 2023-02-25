@@ -6,6 +6,8 @@ import { FilterOption } from '.'
 
 const SearchFilterList = () => {
     const isDark = useSelector(state => state.darkMode.value)
+    const searchFilter = useSelector(state => state.searchFilter.value)
+    console.log(searchFilter, 'searchFilter searchFilterList')
     return (
         <div className='w-full flex flex-col'>
             <div className='flex items-center justify-between w-full'>
@@ -13,7 +15,7 @@ const SearchFilterList = () => {
                 <MdOutlineKeyboardArrowUp className='text-[#808191] text-2xl' />
             </div>
             <div className='mt-5 flex flex-col gap-3'>
-                <FilterOption active title='Full Time' count='103' />
+                <FilterOption title='Full Time' count='103' />
                 <FilterOption title='Part Time' count='142' />
                 <FilterOption title='Internship' count='142' />
                 <FilterOption title='Freelance' count='142' />

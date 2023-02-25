@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
-
-import { FindJobsCard, JobAlert, Loader, Navbar, SearchedJobs, SearchFilterList, Title } from 'components'
+import { FindJobsCard, JobAlert, Loader, SearchedJobs, SearchFilterList, Title } from 'components'
 import { useSelector, useDispatch } from 'react-redux'
 import { update } from 'redux/apiDataSlice'
 

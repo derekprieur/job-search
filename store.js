@@ -7,6 +7,7 @@ import apiDataReducer from './redux/apiDataSlice';
 import currentCompanyDataReducer from './redux/currentCompanyDataSlice';
 import companyJobsReducer from './redux/companyJobsSlice';
 import currentJobDataReducer from './redux/currentJobDataSlice';
+import searchFilterReducer from './redux/searchFilterSlice';
 
 export const store = configureStore({
     reducer: {
@@ -18,5 +19,6 @@ export const store = configureStore({
         currentCompanyData: currentCompanyDataReducer,
         companyJobs: companyJobsReducer,
         currentJobData: currentJobDataReducer,
+        searchFilter: searchFilterReducer,
     },
 });

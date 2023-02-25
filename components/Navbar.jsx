@@ -21,10 +21,10 @@ const Navbar = () => {
             <div className={`px-6 md:px-20 py-6 border-b ${isDark ? 'border-[#21212B]' : 'border-[#E2E2EA]'} text-[#92929D] ${isDark ? 'bg-[#13131A]' : 'bg-white'} fixed top-0 w-full z-50`}>
                 <div className='flex justify-between items-center'>
                     <RxHamburgerMenu className='text-2xl flex md:hidden cursor-pointer' onClick={() => dispatch(toggleMobile())} />
-                    <Link href='/' onClick={() => dispatch(update('home'))}>
+                    <Link href='/' onClick={() => dispatch(update('home'))} className='w-52'>
                         <Image alt='logo' src={logo} className='w-[90px] h-[22px] object-contain hidden md:flex cursor-pointer' />
                     </Link>
-                    <div className='gap-8 font hidden md:flex'>
+                    <div className='gap-8 font hidden md:flex md:flex-1 md:mx-auto justify-center'>
                         <Link href='/' onClick={() => dispatch(update('home'))}>
                             <div className={`relative ${activePage === 'home' ? 'text-[#0BAB7C] font-bold text-base' : ''}`}>
                                 Overview
