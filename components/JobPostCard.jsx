@@ -7,7 +7,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import Link from 'next/link'
 
 import { TextBubble } from '.'
-import company from '../assets/companylogo.png'
 import { update } from 'redux/currentCompanyDataSlice'
 import { update as updateJob } from 'redux/currentJobDataSlice'
 
