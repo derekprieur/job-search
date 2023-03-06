@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 
-import { FindJobsCard, JobDetailsCard, Navbar, Title } from 'components'
+import { FindJobsCard, JobDetailsCard, Title } from 'components'
 
 const JobDetails = () => {
     const isDark = useSelector(state => state.darkMode.value)
