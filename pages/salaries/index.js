@@ -48,17 +48,17 @@ export default function Salaries() {
         });
         if (salaryData.length === 0) {
             fetch(`https://jsearch.p.rapidapi.com/estimated-salary?job_title=NodeJS%20Developer&location=USA&radius=100`, options)
-                        .then(response => response.json())
-                        .then(response => {
-                            setSalaryData(response.data)
-                            setSalaryInput({
-                                jobTitle: 'Node JS Developer',
-                                location: 'USA',
-                                radius: 100
-                            })
-                        })
-                        .catch(err => console.error(err));
-                    setLoading(false)
+                .then(response => response.json())
+                .then(response => {
+                    setSalaryData(response.data)
+                    setSalaryInput({
+                        jobTitle: 'Node JS Developer',
+                        location: 'USA',
+                        radius: 100
+                    })
+                })
+                .catch(err => console.error(err));
+            setLoading(false)
         }
     }
 

@@ -28,12 +28,12 @@ const FeaturedCompanyCard = ({ number }) => {
                 </Link>
             </div>
             <div>
-                <div className='mt-4 flex md:flex-col gap-3 text-[#92929D] items-center md:items-start ml-10 md:ml-0'>
-                    <div className='flex items-center gap-3'>
+                <div className='mt-4 flex md:flex-col gap-3 text-[#92929D] items-center md:items-start ml-10 md:ml-0 flex-wrap'>
+                    <div className='flex items-center gap-3 whitespace-nowrap'>
                         <IoLocationOutline />
                         <p>{apiData[number].job_city} {apiData[number].job_city != null && ','} {apiData[number].job_country}</p>
                     </div>
-                    <div className='flex items-center gap-3'>
+                    <div className='flex items-center gap-3 whitespace-nowrap'>
                         <RiSuitcaseLine />
                         <p>05 Job Vacancy</p>
                     </div>

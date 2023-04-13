@@ -60,7 +60,7 @@ const JobPostCard = ({ number }) => {
                             </Link>
                             <HiOutlineDotsHorizontal className='text-[#B5B5BE] text-xl' />
                         </div>
-                        <div className='flex gap-1 mt-4'>
+                        <div className='flex gap-1 mt-4 flex-wrap'>
                             <TextBubble text={apiData[number]?.job_required_skills && apiData[number]?.job_required_skills[0] || 'React'} />
                             <TextBubble text={apiData[number]?.job_required_skills && apiData[number]?.job_required_skills[1] || 'Laravel'} />
                             <TextBubble text={apiData[number]?.job_required_skills && apiData[number]?.job_required_skills[2] || 'CSS'} />
@@ -71,15 +71,15 @@ const JobPostCard = ({ number }) => {
                 {apiData[number]?.job_highlights.Responsibilities != undefined ? <p className='mt-7  font-normal text-[#696974] text-lg'>{apiData[number]?.job_highlights?.Responsibilities[0]}</p> : <p className='mt-7  font-normal text-[#696974] text-lg'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>}
             </div>
             <div>
-                <div className='flex gap-1 mt-7 justify-center'>
+                <div className='flex gap-1 mt-7 justify-center flex-wrap'>
                     <TextBubble text={apiData[number]?.job_employment_type.toLowerCase()} icon={<RiSuitcaseLine />} />
                     <TextBubble text='45 Applied' icon={<MdOutlinePeopleAlt />} />
                     <TextBubble text='3 days left' icon={<AiOutlineClockCircle />} />
                 </div>
                 <div className='flex justify-between mt-7 items-center'>
-                    <p className={`font-extrabold text-xl ${isDark && 'text-white'}`}>{estimatedSalary && estimatedSalary.length > 0 ? `$${(estimatedSalary[0].min_salary / 12000).toFixed(0)}k-${(estimatedSalary[0].max_salary / 12000).toFixed(0)}k` : '$15k-20k'}<span className={`${isDark ? 'text-white' : 'text-[#696974]'}  font-normal text-lg`}>/month</span></p>
+                    <p className={`whitespace-nowrap font-extrabold text-lg sm:text-xl ${isDark && 'text-white'}`}>{estimatedSalary && estimatedSalary.length > 0 ? `$${(estimatedSalary[0].min_salary / 12000).toFixed(0)}k-${(estimatedSalary[0].max_salary / 12000).toFixed(0)}k` : '$15k-20k'}<span className={`${isDark ? 'text-white' : 'text-[#696974]'}  font-normal text-lg`}>/month</span></p>
                     <Link href={apiData[number]?.job_apply_link || '/'} target='_blank' >
-                        <button className='bg-[#0BAB7C] text-white px-4 py-2 rounded-lg font-medium text-lg'>Apply Now</button>
+                        <button className='bg-[#0BAB7C] text-white px-4 py-2 rounded-lg font-medium text-lg whitespace-nowrap'>Apply Now</button>
                     </Link>
                 </div>
             </div>

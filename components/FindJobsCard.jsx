@@ -40,7 +40,7 @@ const FindJobsCard = ({ btnTitle }) => {
     return (
         <div className={`w-full rounded-2xl md:flex ${isDark ? 'bg-[#1C1C24]' : 'bg-white'}`}>
             <div className='flex items-center w-full px-8 gap-4 py-6 md:border-r'>
-                <RxMagnifyingGlass className='text-3xl text-[#92929D]' />
+                <RxMagnifyingGlass className='text-3xl shrink-0 text-[#92929D]' />
                 <input type="text" value={search.jobTitle} onChange={(e) => {
                     setSearch({ ...search, jobTitle: e.target.value })
                 }} placeholder='Job Title, Company or Keywords' className='flex-1 font-bold placeholder:text-[#92929D] bg-transparent' />

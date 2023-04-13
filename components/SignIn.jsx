@@ -11,7 +11,7 @@ const SignIn = () => {
     }
     return (
         <>
-            <button onClick={() => signIn('google')} className={`text-[#0BAB7C] border-2 border-[#0BAB7C] rounded-xl py-1 px-2 font-bold cursor-pointer `}>Sign In</button>
+            <button onClick={() => signIn('google')} className={`text-[#0BAB7C] border-2 border-[#0BAB7C] rounded-xl py-1 px-2 font-bold cursor-pointer whitespace-nowrap`}>Sign In</button>
         </>
     )
 }
