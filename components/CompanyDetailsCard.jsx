@@ -42,7 +42,7 @@ const CompanyDetailsCard = () => {
                     </div>
                 </div>
             </div>
-            <div className='mt-10 px-4 flex gap-2'>
+            <div className='mt-10 px-4 flex gap-2 flex-wrap'>
                 <button className={`border bg-transparent text-[#696974] px-3 py-1 rounded-lg ${isDark ? 'border-[#696974]' : 'border-[#F1F1F5]'}`}>About</button>
                 <button className={`border bg-[#44444F] text-white px-3 py-1 rounded-lg ${isDark ? 'border-[#44444F]' : 'border-[#F1F1F5]'}`}>Jobs</button>
                 <button className={`border bg-transparent text-[#696974] px-3 py-1 rounded-lg ${isDark ? 'border-[#696974]' : 'border-[#F1F1F5]'}`}>Products</button>

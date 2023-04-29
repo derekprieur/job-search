@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { HiOutlineDotsHorizontal } from 'react-icons/hi'
-import { MdOutlinePeopleAlt } from 'react-icons/md'
+import { IoIosPeople } from 'react-icons/io'
 import { RiSuitcaseLine } from 'react-icons/ri'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import { useSelector, useDispatch } from 'react-redux'
@@ -13,6 +13,7 @@ import { update as updateJob } from 'redux/currentJobDataSlice'
 const JobPostCard = ({ number }) => {
     const isDark = useSelector(state => state.darkMode.value)
     const apiData = useSelector(state => state.apiData.value)
+    const [imageLoaded, setImageLoaded] = useState(true);
     const dispatch = useDispatch()
     const [estimatedSalary, setEstimatedSalary] = useState([])
 
@@ -32,6 +33,11 @@ const JobPostCard = ({ number }) => {
         dispatch(updateJob(apiData[number]))
     }
 
+    const handleImageError = () => {
+        setImageLoaded(false);
+    };
+
+
     useEffect(() => {
         fetch(`https://jsearch.p.rapidapi.com/estimated-salary?job_title=${apiData[number].job_title}&location=${apiData[number].job_city}&radius=100`, options)
             .then(response => response.json())
@@ -41,6 +47,9 @@ const JobPostCard = ({ number }) => {
             .catch(err => console.error(err));
     }, [apiData])
 
+    if (!imageLoaded) {
+        return null;
+    }
 
     return (
         <div className={`${isDark ? 'bg-[#1C1C24]' : 'bg-white'} px-4 py-6 mt-8 rounded-lg max-w-md flex flex-col justify-between w-full`}>
@@ -49,7 +58,7 @@ const JobPostCard = ({ number }) => {
                     <Link href={`/companydetails/${apiData[number]?.employer_name.toLowerCase()}`} onClick={handleClickCompany}>
                         <div>
                             <div className={`${isDark ? 'bg-[#1C1C24] border border-[#21212B]' : 'bg-[#FAFAFB]'} p-2 rounded-lg`}>
-                                <img src={apiData[number]?.employer_logo || 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'} alt='company' className='object-contain w-[50px] h-[50px]' />
+                                <img src={apiData[number]?.employer_logo} alt='company' className='object-contain w-[50px] h-[50px]' onError={handleImageError} />
                             </div>
                         </div>
                     </Link>
@@ -61,10 +70,10 @@ const JobPostCard = ({ number }) => {
                             <HiOutlineDotsHorizontal className='text-[#B5B5BE] text-xl' />
                         </div>
                         <div className='flex gap-1 mt-4 flex-wrap'>
-                            <TextBubble text={apiData[number]?.job_required_skills && apiData[number]?.job_required_skills[0] || 'React'} />
-                            <TextBubble text={apiData[number]?.job_required_skills && apiData[number]?.job_required_skills[1] || 'Laravel'} />
-                            <TextBubble text={apiData[number]?.job_required_skills && apiData[number]?.job_required_skills[2] || 'CSS'} />
-                            <TextBubble text={apiData[number]?.job_required_skills && apiData[number]?.job_required_skills[3] || 'PHP'} />
+                            {apiData[number]?.job_required_skills && <TextBubble text={apiData[number]?.job_required_skills && apiData[number]?.job_required_skills[0]} />}
+                            {apiData[number]?.job_required_skills && <TextBubble text={apiData[number]?.job_required_skills && apiData[number]?.job_required_skills[1]} />}
+                            {apiData[number]?.job_required_skills && <TextBubble text={apiData[number]?.job_required_skills && apiData[number]?.job_required_skills[2]} />}
+                            {apiData[number]?.job_required_skills && <TextBubble text={apiData[number]?.job_required_skills && apiData[number]?.job_required_skills[3]} />}
                         </div>
                     </div>
                 </div>
@@ -73,7 +82,7 @@ const JobPostCard = ({ number }) => {
             <div>
                 <div className='flex gap-1 mt-7 justify-center flex-wrap'>
                     <TextBubble text={apiData[number]?.job_employment_type.toLowerCase()} icon={<RiSuitcaseLine />} />
-                    <TextBubble text='45 Applied' icon={<MdOutlinePeopleAlt />} />
+                    {apiData[number]?.employer_company_type && <TextBubble text={apiData[number]?.employer_company_type} icon={<IoIosPeople />} />}
                     <TextBubble text='3 days left' icon={<AiOutlineClockCircle />} />
                 </div>
                 <div className='flex justify-between mt-7 items-center'>

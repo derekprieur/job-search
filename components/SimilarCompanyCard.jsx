@@ -1,7 +1,7 @@
 import { BsPlus, BsStarHalf } from 'react-icons/bs'
 import { useSelector } from 'react-redux'
 
-const SimilarCompanyCard = ({number}) => {
+const SimilarCompanyCard = ({ number }) => {
     const isDark = useSelector(state => state.darkMode.value)
     const apiData = useSelector(state => state.apiData.value)
 
@@ -9,7 +9,7 @@ const SimilarCompanyCard = ({number}) => {
 
     return (
         <div className={`mx-4 p-6 mb-5 rounded-xl ${isDark ? 'bg-[#21212B]' : 'bg-white'}`}>
-            <div className='flex justify-between'>
+            <div className='flex justify-between flex-wrap'>
                 <div className='flex items-center gap-3'>
                     <img src={apiData[number]?.employer_logo} alt='company' className='w-12 h-12' />
                     <div className='flex flex-col gap-2'>

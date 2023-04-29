@@ -33,7 +33,7 @@ const CompanyJobs = () => {
     return (
         <div className={`mx-4 mt-8 px-4 py-5 rounded-xl ${isDark ? 'bg-[#1C1C24]' : 'bg-white'}`}>
             <div className={`${!isMobile && 'flex justify-between'}`}>
-                <div className={`flex items-center justify-between py-3 px-3 gap-2 rounded-xl ${isDark ? 'bg-[#21212B]' : 'bg-[#FAFAFB]'} ${!isMobile && 'w-[60%]'}`}>
+                <div className={`flex items-center justify-between flex-wrap py-3 px-3 gap-2 rounded-xl ${isDark ? 'bg-[#21212B]' : 'bg-[#FAFAFB]'} ${!isMobile && 'w-[60%]'}`}>
                     <RxMagnifyingGlass className='text-[#757D8A] text-xl' />
                     <input type="text" placeholder='Search Job title or Keyword' className='bg-transparent flex-1' />
                     <button className='bg-[#0BAB7C] py-1 px-3 rounded-lg text-white'>Search</button>
